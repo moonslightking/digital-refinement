@@ -1,0 +1,66 @@
+{
+  "metadata": {
+    "target": "[人物姓名]",
+    "refined_date": "YYYY-MM-DD",
+    "data_coverage": "YYYY-YYYY"
+  },
+
+  "quality": {
+    "confidence_level": "A/B/C",
+    "confidence_rationale": "定档理由（含定档路径：默认A → 是否硬降/软降 → 最终结果）",
+    "known_limitations": [],
+    "holdout_integrity": "verified | hash_mismatch | seal_broken",
+    "high_authenticity_ratio": "描述性说明（如：高真实性来源占多数 / 存在已知缺口）"
+  },
+
+  "structure": {
+    "cognitive_stages": 0,
+    "mental_models": 0,
+    "decision_heuristics": 0,
+    "self_discipline_clauses": 0,
+    "expression_dna_categories": 0,
+    "honesty_boundaries": 0,
+    "internal_tensions": 0
+  },
+
+  "corpus_stats": {
+    "total_source_units": 0,
+    "holdout_units": 0,
+    "holdout_ratio": "0%",
+    "source_type_distribution": {
+      "first_hand_writings": 0,
+      "conversations": 0,
+      "behavioral_evidence": 0,
+      "external_evaluation": 0,
+      "intellectual_lineage": 0,
+      "counter_evidence": 0,
+      "personal_environment": 0
+    }
+  },
+
+  "validation": {
+    "holdout_consistency": "描述性评估（如：大多数留出集命中，无根本对立）",
+    "distinguishability": "描述性评估（如：与简单角色扮演有明显差异）",
+    "functional_tests_passed": null,
+    "cross_review_status": "pending | no_major_objections | has_objections"
+  },
+
+  "runtime": {
+    "default_stage": "S1",
+    "default_mode": "thinking",
+    "stage_auto_switch": false,
+    "available_modes": ["thinking", "situation_replay", "historical", "evolution", "comparison"]
+  },
+
+  "phase_completion": {
+    "phase_0": { "status": "pending", "date": null, "notes": "" },
+    "phase_0_1": { "status": "pending", "date": null, "notes": "MCB校验" },
+    "phase_0_5": { "status": "pending", "date": null, "notes": "" },
+    "phase_1": { "status": "pending", "date": null, "notes": "" },
+    "phase_2": { "status": "pending", "date": null, "notes": "" },
+    "phase_3": { "status": "pending", "date": null, "notes": "" },
+    "phase_4": { "status": "pending", "date": null, "notes": "" },
+    "phase_5": { "status": "pending", "date": null, "notes": "" },
+    "phase_6": { "status": "pending", "date": null, "notes": "" }
+  }
+}
