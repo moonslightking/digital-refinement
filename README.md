@@ -1,44 +1,48 @@
-# Digital Refinement
+# 数字炼化
 
-Digital Refinement is a skill for extracting an investor's cognitive structure from historical materials and turning it into a runnable cognitive persona for LLM agents.
+语言：中文 | [English](README.en.md)
 
-It is designed for investors, traders, fund managers, and investment writers whose public materials contain enough evidence to reconstruct how they reason, change their mind, handle uncertainty, and make decisions.
+数字炼化是一套 skill，用于从投资者的历史材料中提取认知结构，并转化为可在 LLM agent 中运行的认知人格。
 
-## What It Produces
+它适用于投资者、交易员、基金经理、投资写作者和投资 KOL。前提是目标人物有足够公开材料，能够还原其推理方式、决策风格、认知变化、风险处理方式和典型盲区。
 
-A completed refinement project produces a cognitive persona folder with:
+## 产出内容
 
-- `SKILL.md`: the runnable persona skill.
-- `meta.json`: confidence, coverage, corpus, validation, and runtime metadata.
-- `cognitive-timeline.md`: the target's cognitive timeline.
-- `cognitive-evolution-narrative.md`: the narrative of cognitive change.
-- `stage-profiles/`: stage-level cognitive profiles.
-- `cognitive-structure/`: inheritable reasoning layer and contextual meta layer.
-- `references/`: collected source evidence and context annotations.
-- `validation/`: holdout validation, functional tests, baseline comparison, and cross-review notes.
+一次完整炼化会产出一个认知人格文件夹，通常包括：
 
-## Core Ideas
+- `SKILL.md`：可运行的人格 skill。
+- `meta.json`：置信等级、材料覆盖、语料统计、验证结果和运行参数。
+- `cognitive-timeline.md`：认知时间线。
+- `cognitive-evolution-narrative.md`：认知演化叙事。
+- `stage-profiles/`：各阶段认知画像。
+- `cognitive-structure/`：继承层和元信息层。
+- `references/`：采集证据和语境标注。
+- `validation/`：留出集验证、功能测试、基线对照和交叉评审。
 
-- Cognition can be structured into mental models, decision heuristics, value priorities, expression patterns, biases, and boundaries.
-- Every judgment must be interpreted in context: date, audience, market environment, and the person's own situation.
-- Cognitive personas should preserve flaws and limitations. The goal is not to simulate an ideal investor.
-- Social role constraints belong in the contextual meta layer. They should not become hard runtime bans for the agent.
+## 核心原则
 
-## Workflow
+- 认知可以被结构化为心智模型、决策启发式、价值排序、表达模式、偏误画像和诚实边界。
+- 判断必须放回语境：日期、受众、市场环境、个人处境都要记录。
+- 认知人格要保留目标人物的局限和偏差，不是制造一个完美投资者。
+- 社会角色约束应放入元信息层，不应写成 agent 的硬性运行禁令。
+
+## 工作流
 
 ```text
 Phase 0 → Phase 0.1 → Phase 0.5 → Phase 1 → Phase 2 → Phase 3 → Phase 4 → Phase 5 → Phase 6
-Feasibility  MCB check   Holdout split Data collection Context tagging Evolution model Structure Persona Validation
+可行性    MCB校验     留出集切分   数据采集   语境标注   演化建模   结构提炼   人格构建   质量验证
+评估
 ```
 
-The holdout split must happen before data collection. The MCB check must happen before context tagging.
+留出集切分必须发生在正式数据采集之前。MCB 校验必须发生在语境标注之前。
 
-## Included Files
+## 文件结构
 
 ```text
 digital-refinement/
 ├── SKILL.md
 ├── README.md
+├── README.en.md
 ├── README.zh-CN.md
 ├── references/
 │   ├── methodology.md
@@ -52,47 +56,47 @@ digital-refinement/
     └── meta-json-template.json
 ```
 
-## External Data
+## 外部数据
 
-The skill expects a Macro Context Base (MCB) when running investor-focused refinements. The schema is included in `references/MCB-SCHEMA.md`, but the actual MCB data files are intentionally not bundled.
+投资者炼化通常需要 Macro Context Base（MCB）作为宏观语境基座。本 skill 提供 `references/MCB-SCHEMA.md`，但不内置真实 MCB 数据。
 
-Expected data files:
+预期数据文件：
 
 - `MCB_CN.jsonl`
 - `MCB_US.jsonl`
 - `MCB_META.json`
 
-Keep source corpora, private notes, and sealed holdout files outside the public skill folder unless they are already cleared for publication.
+原始语料、私人笔记和封存留出集不应放进公开 skill 文件夹，除非这些材料已经确认可以公开。
 
-## Installation
+## 安装方式
 
-Place the `digital-refinement` folder in your agent's skills directory. The folder root must contain `SKILL.md`.
+把 `digital-refinement` 文件夹放入 agent 的 skills 目录，确保文件夹根目录下存在 `SKILL.md`。
 
-Example locations:
+常见路径：
 
-- Codex: `~/.codex/skills/digital-refinement/`
-- Claude Code: `~/.claude/skills/digital-refinement/`
+- Codex：`~/.codex/skills/digital-refinement/`
+- Claude Code：`~/.claude/skills/digital-refinement/`
 
-For this repository, edit the source under `skills/skills-staging/digital-refinement/` first, then sync or package it only after review.
+在本仓库中，先修改 `skills/skills-staging/digital-refinement/` 下的源文件。确认后再同步安装或打包。
 
-## Usage
+## 使用场景
 
-Trigger this skill when a user asks to refine, distill, or model an investor's cognitive persona. The skill is also appropriate for requests about decision style, mental models, cognitive bias profiles, and thinking evolution.
+当用户要求炼化、蒸馏、构建或分析某个投资者的认知人格时触发本 skill。它也适用于分析决策风格、心智模型、认知偏误画像和思维演化轨迹。
 
-Typical prompts:
+典型提示：
 
-- "Refine Warren Buffett's cognitive persona from shareholder letters."
-- "Extract this investor's mental models and decision heuristics."
-- "Build a cognitive persona from this KOL's public posts."
-- "Analyze how this fund manager's thinking changed over time."
+- "炼化巴菲特的股东信，做成认知人格。"
+- "提取这个投资者的心智模型和决策启发式。"
+- "根据这个 KOL 的公开帖子构建认知人格。"
+- "分析这位基金经理的思维方式如何随时间变化。"
 
-## Quality Bar
+## 质量要求
 
-A usable refinement must include:
+合格炼化必须包括：
 
-- Source inventory and evidence quality labels.
-- Context annotations with MCB references where relevant.
-- Stage profiles and cognitive evolution reasoning.
-- A separated inheritable layer and meta layer.
-- Holdout validation and cross-review notes.
-- Clear confidence level and usage boundaries.
+- 来源清单和证据质量标注。
+- 必要的 MCB 引用和个人语境标注。
+- 阶段画像和认知演化解释。
+- 继承层与元信息层分离。
+- 留出集验证和交叉评审记录。
+- 明确置信等级和使用边界。
